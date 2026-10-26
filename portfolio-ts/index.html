@@ -60,33 +60,43 @@
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="hero-content">
-          
+          <h2>
+            Hi, I am
+          </h2>
           <h1>
-            Hi, I am Samia
+             Samia
             <span class="highlight">Computer Science Student</span>
           </h1>
-          <p class="hero-description">
+          <!-- <p class="hero-description">
             I study Computer Science and Engineering at BRAC University. 
 
-          </p>
+          </p> -->
 
-          <div class="hero-actions">
-            <a class="button button-primary" href="Samia-Rahman-Mridula-CV.pdf" download>
-              Resume <span aria-hidden="true">↗</span>
-            </a>
-            <a class="button button-outline" href="https://github.com/samiamridula1"
-              target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-              <i class="fab fa-github" aria-hidden="true"></i>
-            </a>
-            <a class="button button-outline" href="https://linkedin.com/in/samia-rahman-b578ab359"
-              target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-              <i class="fab fa-linkedin" aria-hidden="true"></i>
-            </a>
-            <a class="button button-outline" href="mailto:mridulasamia4@gmail.com"
-              aria-label="Send me an email">
-              <i class="fas fa-envelope" aria-hidden="true"></i>
-            </a>
-          </div>
+         <div class="hero-actions">
+  <!-- Resume dropdown -->
+  <div class="resume-dropdown">
+    <button class="button button-primary" type="button" id="resumeToggle" aria-expanded="false" aria-haspopup="true">
+      Resume <span aria-hidden="true">↓</span>
+    </button>
+    <div class="resume-menu" id="resumeMenu" hidden>
+      <a href="Samia-Rahman-Mridula-CV.pdf" download>Resume</a>
+      <a href="Samia-Rahman-Mridula-Normal-CV.pdf" download>AcademicResume</a>
+    </div>
+  </div>
+
+  <a class="button button-outline" href="https://github.com/samiamridula1"
+    target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+    <i class="fab fa-github" aria-hidden="true"></i>
+  </a>
+  <a class="button button-outline" href="https://linkedin.com/in/samia-rahman-b578ab359"
+    target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+    <i class="fab fa-linkedin" aria-hidden="true"></i>
+  </a>
+  <a class="button button-outline" href="mailto:mridulasamia4@gmail.com"
+    aria-label="Send me an email">
+    <i class="fas fa-envelope" aria-hidden="true"></i>
+  </a>
+</div>
 
           <div class="hero-tags" aria-label="Areas of interest">
             <!-- <span>NLP</span>
@@ -125,9 +135,8 @@ gambling-hci-research/ -->
           <h2>About Me</h2>
           <p>
             I'm a Computer Science and Engineering graduate from BRAC University with
-            experience in web development, solving programming problems, and
-            exploring machine learning and NLP. I'm looking for opportunities to
-            gain practical experience and work with others.
+            experience in web development, solving programming problems. I'm looking for opportunities to
+            gain practical experience.
           </p>
         </div>
 
@@ -161,14 +170,14 @@ gambling-hci-research/ -->
           </div>
 
           <div id="detailed" class="about-content">
-            <h4>Detailed Information</h4>
-            <p>
-              I am Samia Rahman Mridula, a Computer Science and Engineering graduate from BRAC University with a strong interest in building user-focused web applications and SaaS products. I work with React, Next.js, Node.js, TypeScript, 
-              PostgreSQL, and MongoDB to develop complete frontend and backend solutions.
-              My experience includes personal and academic projects in other computer science areas. 
-              I enjoy solving programming problems and turning ideas into functional well-designed projects.
-            </p>
-          </div>
+  <h4>Detailed Information</h4>
+  <p>
+    I am Samia Rahman Mridula, a Computer Science and Engineering graduate from BRAC University with a strong interest in building user-focused web applications. I work with React, Next.js, Node.js, TypeScript, 
+    PostgreSQL, and MongoDB to develop complete frontend and backend.
+    My experience includes personal and academic projects in other computer science areas. 
+    I enjoy solving programming problems and turning ideas into functional well-designed projects.
+  </p>
+</div>
         </div>
       </div>
     </section>
@@ -331,7 +340,7 @@ gambling-hci-research/ -->
             </div>
             <p class="form-note" id="copyEmailNote" role="status" aria-live="polite"></p>
 
-            <p><strong>Currently:</strong> Open to full-time roles.</p>
+            <!-- <p><strong>Currently:</strong> Open to full-time roles.</p> -->
           </div>
 
           <div class="contact-card reveal">
