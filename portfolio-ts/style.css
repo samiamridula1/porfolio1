@@ -230,6 +230,7 @@ section:not(.hero) {
   transform: translateY(0);
 }
 
+
 /* =========================================
    3. HEADER & NAVIGATION
    ========================================= */
@@ -1620,4 +1621,44 @@ h1 {
     opacity: 1;
     transform: none;
   }
+}
+/* Resume dropdown */
+.resume-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.resume-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 20;
+  min-width: 200px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  box-shadow: var(--shadow-hover);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.resume-menu a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.resume-menu a:hover {
+  background: var(--chip);
+  color: var(--accent);
+}
+
+.resume-menu[hidden] {
+  display: none;
 }
