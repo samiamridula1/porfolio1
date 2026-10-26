@@ -99,6 +99,31 @@
                 setOpen(false);
         });
     }
+    /* ---------- Resume dropdown ---------- */
+function initResumeDropdown() {
+  const toggle = document.getElementById("resumeToggle");
+  const menu = document.getElementById("resumeMenu");
+  if (!toggle || !menu) return;
+
+  function close() {
+    menu.hidden = true;
+    toggle.setAttribute("aria-expanded", "false");
+  }
+
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = !menu.hidden;
+    menu.hidden = isOpen;
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+  });
+
+  document.addEventListener("click", close);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
+  });
+}
+
+initResumeDropdown();
     /* ---------- 4. Active navigation link ---------- */
     function initActiveLink() {
         const nav = document.getElementById("navLinks");
