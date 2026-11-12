@@ -1,237 +1,47 @@
-/* ==========================================
-   0. BASE: VARIABLES & STRUCTURAL RULES
-========================================== */
 
-*, *::before, *::after {
+/* =====================================================
+   SAMIA RAHMAN MRIDULA — PORTFOLIO STYLESHEET
+   Typography: IBM Plex Serif + Inter + DM Mono
+   Theme: Modern, elegant, developer-focused
+===================================================== */
+
+
+/* =====================================================
+   1. RESET & DESIGN VARIABLES
+===================================================== */
+
+*, 
+*::before, 
+*::after {
   box-sizing: border-box;
 }
 
 :root {
+  /* Light theme */
   --bg: #ffffff;
   --card: #ffffff;
   --soft-bg: #f6f8fc;
-  --header-bg: rgba(255, 255, 255, 0.86);
+  --header-bg: rgba(255, 255, 255, 0.88);
+
   --text: #16213a;
   --text-soft: #33405c;
   --muted: #5d6985;
   --muted-light: #98a2b8;
+
   --border: #e3e8f2;
   --strong-border: #c9d1e3;
-}
 
-:root[data-theme="dark"] {
-  --bg: #0b1120;
-  --card: #111a2e;
-  --soft-bg: #0f172a;
-  --header-bg: rgba(11, 17, 32, 0.86);
-  --text: #f1f5f9;
-  --text-soft: #cbd5e1;
-  --muted: #94a3b8;
-  --muted-light: #64748b;
-  --border: #1f2a44;
-  --strong-border: #334166;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]):not([data-theme="dark"]) {
-    --bg: #0b1120;
-    --card: #111a2e;
-    --soft-bg: #0f172a;
-    --header-bg: rgba(11, 17, 32, 0.86);
-    --text: #f1f5f9;
-    --text-soft: #cbd5e1;
-    --muted: #94a3b8;
-    --muted-light: #64748b;
-    --border: #1f2a44;
-    --strong-border: #334166;
-  }
-}
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-[hidden] {
-  display: none !important;
-}
-
-h1, h2, h3, h4, p {
-  margin-top: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button, input, textarea {
-  font: inherit;
-}
-
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-}
-
-.skip-link:focus {
-  left: 12px;
-  top: 12px;
-  z-index: 200;
-  padding: 8px 12px;
-  background: var(--card);
-  color: var(--text);
-  border-radius: 5px;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-}
-
-.nav-links > a:not(.button) {
-  position: relative;
-  padding: 4px 0;
-}
-
-.nav-links > a:not(.button)::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -6px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s ease;
-}
-
-.nav-links > a.active::after,
-.nav-links > a:not(.button):hover::after {
-  transform: scaleX(1);
-}
-
-.icon-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--border);
-  color: var(--text);
-  cursor: pointer;
-}
-
-.menu-toggle {
-  display: none;
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border: 1px solid transparent;
-  cursor: pointer;
-}
-
-.hero-grid {
-  display: grid;
-  align-items: center;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.hero .highlight {
-  display: block;
-}
-
-.about-content {
-  display: none;
-}
-
-.about-content.active {
-  display: block;
-}
-
-.facts-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.tag-list {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.skill-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  margin-bottom: 16px;
-  font-family: "DM Mono", monospace;
-  font-size: 13px;
-}
-
-.projects-grid {
-  display: grid;
-}
-
-.project-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.featured-label {
-  padding: 2px 8px;
-  border: 1px solid;
-}
-
-.project-link {
-  display: inline-block;
-  margin-top: 18px;
-}
-
-.js-reveal .reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.js-reveal .reveal.in-view {
-  opacity: 1;
-  transform: none;
-}
-
-/* ==========================================
-   PORTFOLIO-WIDE DESIGN SYSTEM
-   Clean, modern, blue-accented portfolio
-========================================== */
-
-:root {
+  /* Accent colors */
   --accent: #3956c8;
   --accent-hover: #2944ad;
   --accent-soft: #e8edff;
   --accent-2: #7a5af8;
 
+  /* Layout */
   --container: 1050px;
   --radius: 10px;
 
+  /* Shadows */
   --shadow:
     0 1px 2px rgba(25, 35, 65, 0.04),
     0 8px 24px rgba(25, 35, 65, 0.05);
@@ -241,7 +51,23 @@ button, input, textarea {
     0 16px 36px rgba(25, 35, 65, 0.11);
 }
 
+
+/* Dark theme */
+
 :root[data-theme="dark"] {
+  --bg: #0b1120;
+  --card: #111a2e;
+  --soft-bg: #0f172a;
+  --header-bg: rgba(11, 17, 32, 0.88);
+
+  --text: #f1f5f9;
+  --text-soft: #cbd5e1;
+  --muted: #94a3b8;
+  --muted-light: #64748b;
+
+  --border: #1f2a44;
+  --strong-border: #334166;
+
   --accent: #91a7ff;
   --accent-hover: #b1c0ff;
   --accent-soft: #202d4e;
@@ -256,8 +82,24 @@ button, input, textarea {
     0 16px 36px rgba(0, 0, 0, 0.35);
 }
 
+
+/* Follow system dark mode when no manual preference exists */
+
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    --bg: #0b1120;
+    --card: #111a2e;
+    --soft-bg: #0f172a;
+    --header-bg: rgba(11, 17, 32, 0.88);
+
+    --text: #f1f5f9;
+    --text-soft: #cbd5e1;
+    --muted: #94a3b8;
+    --muted-light: #64748b;
+
+    --border: #1f2a44;
+    --strong-border: #334166;
+
     --accent: #91a7ff;
     --accent-hover: #b1c0ff;
     --accent-soft: #202d4e;
@@ -273,21 +115,73 @@ button, input, textarea {
   }
 }
 
-/* ==========================================
-   1. GLOBAL STYLES
-========================================== */
+
+/* =====================================================
+   2. GLOBAL STYLES & TYPOGRAPHY
+===================================================== */
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+
   font-family: "Inter", sans-serif;
+  font-size: 15px;
   line-height: 1.75;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+/* Serif typography for headings */
+
+h1,
+h2,
+h3,
+h4 {
+  margin-top: 0;
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 600;
+}
+
+p {
+  margin-top: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 section {
-  scroll-margin-top: 70px;
+  scroll-margin-top: 80px;
+}
+
+section:not(.hero) {
+  padding-block: 90px;
 }
 
 .container {
@@ -295,23 +189,65 @@ section {
   margin-inline: auto;
 }
 
-section:not(.hero) {
-  padding-block: 90px;
-}
-
-.soft-section {
-  background: var(--soft-bg);
-  border-block: 1px solid var(--border);
-}
-
 ::selection {
   background: var(--accent);
-  color: #fff;
+  color: #ffffff;
 }
 
-/* ==========================================
-   2. NAVIGATION
-========================================== */
+/* Monospace technical elements */
+
+.terminal,
+.logo,
+.section-kicker,
+.project-category,
+.contact-kicker,
+.contact-label,
+.social-heading,
+.skill-icon {
+  font-family: "DM Mono", monospace;
+}
+
+
+/* =====================================================
+   3. ACCESSIBILITY
+===================================================== */
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: -9999px;
+  z-index: 200;
+
+  padding: 10px 14px;
+
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+  outline: none;
+}
+
+
+/* =====================================================
+   4. NAVIGATION
+===================================================== */
 
 .site-header {
   position: sticky;
@@ -326,16 +262,22 @@ section:not(.hero) {
 }
 
 .nav {
-  min-height: 70px;
+  display: flex;
+  align-items: center;
   gap: 24px;
+
+  min-height: 70px;
 }
+
+/* Developer logo */
 
 .logo {
   color: var(--text);
-  font-family: "DM Mono", monospace;
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.6px;
+
+  white-space: nowrap;
   transition: color 0.2s ease;
 }
 
@@ -347,14 +289,24 @@ section:not(.hero) {
   color: var(--accent);
 }
 
+/* Navigation links */
+
 .nav-links {
+  display: flex;
+  align-items: center;
   gap: 28px;
+  margin-left: auto;
 }
 
 .nav-links > a:not(.button) {
+  position: relative;
+
+  padding: 4px 0;
+
   color: var(--muted);
   font-size: 13px;
   font-weight: 500;
+
   transition: color 0.2s ease;
 }
 
@@ -364,17 +316,51 @@ section:not(.hero) {
 }
 
 .nav-links > a:not(.button)::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+
   height: 2px;
   border-radius: 2px;
+
   background: var(--accent);
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 0.25s ease;
 }
 
+.nav-links > a.active::after,
+.nav-links > a:not(.button):hover::after {
+  transform: scaleX(1);
+}
+
+/* Icon buttons */
+
 .icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   width: 40px;
   height: 40px;
-  border-radius: 8px;
+
   background: var(--card);
-  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  color: var(--text);
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
 }
 
 .icon-button:hover {
@@ -383,19 +369,32 @@ section:not(.hero) {
   color: var(--accent);
 }
 
-/* ==========================================
-   3. BUTTONS
-========================================== */
+.menu-toggle {
+  display: none;
+}
+
+
+/* =====================================================
+   5. BUTTONS
+===================================================== */
 
 .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
   min-height: 44px;
   padding: 11px 20px;
 
+  border: 1px solid transparent;
   border-radius: 8px;
 
   font-family: "DM Mono", monospace;
   font-size: 12px;
   font-weight: 500;
+
+  cursor: pointer;
 
   transition:
     transform 0.2s ease,
@@ -412,7 +411,8 @@ section:not(.hero) {
 .button-primary {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: #ffffff;
+
   box-shadow: 0 6px 16px rgba(57, 86, 200, 0.25);
 }
 
@@ -424,7 +424,8 @@ section:not(.hero) {
 .button-primary:hover {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
-  color: #fff;
+  color: #ffffff;
+
   box-shadow: 0 10px 22px rgba(57, 86, 200, 0.32);
 }
 
@@ -433,16 +434,17 @@ section:not(.hero) {
 }
 
 .button-outline {
-  border-color: var(--border);
   background: var(--card);
+  border-color: var(--border);
   color: var(--text);
 }
 
 .button-outline:hover {
-  border-color: var(--accent);
   background: var(--accent-soft);
+  border-color: var(--accent);
   color: var(--accent);
 }
+
 
 /* Resume dropdown */
 
@@ -467,11 +469,6 @@ section:not(.hero) {
   animation: menu-in 0.15s ease;
 }
 
-@keyframes menu-in {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: none; }
-}
-
 .resume-menu a {
   display: block;
   padding: 10px 12px;
@@ -479,17 +476,33 @@ section:not(.hero) {
   color: var(--text);
   font-size: 13px;
   border-radius: 6px;
-  transition: background 0.15s ease, color 0.15s ease;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
 }
 
 .resume-menu a:hover {
-  color: var(--accent);
   background: var(--accent-soft);
+  color: var(--accent);
 }
 
-/* ==========================================
-   4. HERO SECTION
-========================================== */
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* =====================================================
+   6. HERO SECTION
+===================================================== */
 
 .hero {
   padding: 110px 0 100px;
@@ -511,14 +524,21 @@ section:not(.hero) {
 }
 
 .hero-grid {
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.05fr)
+    minmax(0, 0.95fr);
+
+  align-items: center;
   gap: 56px;
 }
 
 .hero-content h2 {
   margin-bottom: 10px;
+
   color: var(--muted);
   font-family: "DM Mono", monospace;
+
   font-size: 16px;
   font-weight: 500;
 }
@@ -527,31 +547,47 @@ section:not(.hero) {
   margin-bottom: 26px;
 
   color: var(--text);
+
+  font-family: "IBM Plex Serif", serif;
   font-size: clamp(44px, 6.2vw, 70px);
-  font-weight: 800;
-  letter-spacing: -3px;
-  line-height: 1.08;
+  font-weight: 600;
+
+  letter-spacing: -2px;
+  line-height: 1.15;
 }
 
 .hero .highlight {
-  margin-top: 14px;
+  display: block;
+
   width: fit-content;
   max-width: 100%;
+  margin-top: 14px;
 
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent-2)
+  );
+
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 
+  font-family: "Inter", sans-serif;
   font-size: 0.4em;
   font-weight: 700;
+
   letter-spacing: -0.6px;
   line-height: 1.5;
 }
 
 .hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 12px;
+
   margin-top: 30px;
 }
 
@@ -565,10 +601,10 @@ section:not(.hero) {
   min-width: 0;
   overflow: hidden;
 
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 12px;
 
-  background: var(--card);
   box-shadow:
     var(--shadow-hover),
     0 0 0 6px rgba(57, 86, 200, 0.05);
@@ -597,19 +633,29 @@ section:not(.hero) {
 .terminal-bar > span {
   width: 10px;
   height: 10px;
+
   border-radius: 50%;
   background: var(--strong-border);
 }
 
-.terminal-bar > span:nth-child(1) { background: #ff6159; }
-.terminal-bar > span:nth-child(2) { background: #ffbd2e; }
-.terminal-bar > span:nth-child(3) { background: #28c93f; }
+.terminal-bar > span:nth-child(1) {
+  background: #ff6159;
+}
+
+.terminal-bar > span:nth-child(2) {
+  background: #ffbd2e;
+}
+
+.terminal-bar > span:nth-child(3) {
+  background: #28c93f;
+}
 
 .terminal-bar em {
   margin-left: auto;
-  color: var(--muted);
 
+  color: var(--muted);
   font-family: "DM Mono", monospace;
+
   font-size: 11px;
   font-style: normal;
 }
@@ -640,12 +686,15 @@ section:not(.hero) {
 }
 
 @keyframes blink {
-  to { visibility: hidden; }
+  to {
+    visibility: hidden;
+  }
 }
 
-/* ==========================================
-   5. SHARED SECTION HEADINGS
-========================================== */
+
+/* =====================================================
+   7. SHARED SECTION HEADINGS
+===================================================== */
 
 .section-heading {
   max-width: 680px;
@@ -656,70 +705,87 @@ section:not(.hero) {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+
   margin-bottom: 14px;
 
   color: var(--accent);
-
-  font-family: "DM Mono", monospace;
   font-size: 11px;
   font-weight: 500;
+
   letter-spacing: 0.9px;
   text-transform: uppercase;
 }
 
 .section-kicker::before {
   content: "";
+
   width: 22px;
   height: 2px;
-  border-radius: 2px;
+
   background: var(--accent);
+  border-radius: 2px;
 }
 
 .section-heading h2 {
   margin-bottom: 0;
 
   color: var(--text);
-  font-size: clamp(30px, 4vw, 40px);
-  font-weight: 800;
-  letter-spacing: -1.6px;
-  line-height: 1.22;
+  font-family: "IBM Plex Serif", serif;
+
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 600;
+
+  letter-spacing: -1px;
+  line-height: 1.25;
 }
 
 .section-heading p {
   max-width: 570px;
-  margin-top: 14px;
-  margin-bottom: 0;
+  margin: 14px 0 0;
 
   color: var(--muted);
   font-size: 15px;
   line-height: 1.85;
 }
 
-/* ==========================================
-   6. ABOUT SECTION
-========================================== */
+
+/* =====================================================
+   8. ABOUT SECTION
+===================================================== */
 
 .about-card {
   padding: 32px;
 
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 
-  background: var(--card);
   box-shadow: var(--shadow);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.about-card:hover {
+  box-shadow: var(--shadow-hover);
 }
 
 .about-card h3 {
   margin-bottom: 20px;
+
   color: var(--text);
-  font-size: 21px;
-  letter-spacing: -0.3px;
+  font-family: "IBM Plex Serif", serif;
+
+  font-size: 22px;
+  font-weight: 600;
 }
 
 .about-buttons {
   display: inline-flex;
   flex-wrap: wrap;
   gap: 4px;
+
   margin-bottom: 22px;
   padding: 4px;
 
@@ -731,17 +797,20 @@ section:not(.hero) {
 .about-btn {
   padding: 8px 15px;
 
+  background: transparent;
   border: 0;
   border-radius: 6px;
 
-  background: transparent;
   color: var(--muted);
-
   font-size: 12px;
   font-weight: 500;
+
   cursor: pointer;
 
-  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .about-btn:hover {
@@ -755,16 +824,25 @@ section:not(.hero) {
 }
 
 .about-content {
+  display: none;
+
   color: var(--muted);
   font-size: 14px;
   line-height: 1.9;
 }
 
+.about-content.active {
+  display: block;
+}
+
 .about-content h4 {
   color: var(--text);
+  font-size: 18px;
 }
 
 .facts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 4px 28px;
 }
 
@@ -773,7 +851,6 @@ section:not(.hero) {
   border-bottom: 1px solid var(--border);
 }
 
-/* Hide fact boxes that have no content */
 .fact:not(:has(*)) {
   display: none;
 }
@@ -781,6 +858,7 @@ section:not(.hero) {
 .fact-label {
   color: var(--accent);
   font-family: "DM Mono", monospace;
+
   font-size: 10px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
@@ -788,14 +866,23 @@ section:not(.hero) {
 
 .fact strong {
   display: block;
+
   color: var(--text);
+  font-family: "Inter", sans-serif;
+
   font-size: 14px;
   font-weight: 600;
 }
 
-/* ==========================================
-   7. SKILLS SECTION
-========================================== */
+
+/* =====================================================
+   9. SKILLS SECTION
+===================================================== */
+
+.soft-section {
+  background: var(--soft-bg);
+  border-block: 1px solid var(--border);
+}
 
 .skills-grid {
   display: grid;
@@ -806,10 +893,10 @@ section:not(.hero) {
 .skill-card {
   padding: 26px;
 
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 
-  background: var(--card);
   box-shadow: var(--shadow);
 
   transition:
@@ -824,43 +911,78 @@ section:not(.hero) {
   box-shadow: var(--shadow-hover);
 }
 
-.skill-card h3 {
-  margin-bottom: 16px;
-  color: var(--text);
-  font-size: 16px;
-  letter-spacing: -0.2px;
-}
-
 .skill-icon {
-  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  margin-bottom: 16px;
+
   background: var(--accent-soft);
   color: var(--accent);
+
+  border-radius: 9px;
+
+  font-size: 13px;
 }
 
-/* ==========================================
-   8. PROJECTS SECTION
-========================================== */
+.skill-card h3 {
+  margin-bottom: 16px;
+
+  color: var(--text);
+  font-family: "IBM Plex Serif", serif;
+
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.tag-list span {
+  padding: 5px 10px;
+
+  background: var(--soft-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+
+  color: var(--text-soft);
+
+  font-family: "DM Mono", monospace;
+  font-size: 10.5px;
+}
+
+
+/* =====================================================
+   10. PROJECTS SECTION
+===================================================== */
 
 .project-filters {
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
+
   margin-bottom: 30px;
 }
 
 .filter-button {
-  cursor: pointer;
   min-height: 38px;
   padding: 8px 15px;
 
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 999px;
 
-  background: var(--card);
   color: var(--muted);
-
   font-size: 12px;
   font-weight: 500;
+
+  cursor: pointer;
 
   transition:
     border-color 0.2s ease,
@@ -876,7 +998,7 @@ section:not(.hero) {
 .filter-button.active {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: #ffffff;
 }
 
 :root[data-theme="dark"] .filter-button.active {
@@ -884,6 +1006,7 @@ section:not(.hero) {
 }
 
 .projects-grid {
+  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 22px;
 }
@@ -895,10 +1018,10 @@ section:not(.hero) {
   min-width: 0;
   padding: 26px;
 
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
 
-  background: var(--card);
   box-shadow: var(--shadow);
 
   transition:
@@ -913,59 +1036,57 @@ section:not(.hero) {
   box-shadow: var(--shadow-hover);
 }
 
+.project-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+}
+
 .project-category {
   color: var(--accent);
-  font-family: "DM Mono", monospace;
   font-size: 10px;
   letter-spacing: 0.7px;
   text-transform: uppercase;
 }
 
 .featured-label {
-  border-color: var(--accent-soft);
-  border-radius: 999px;
+  padding: 2px 8px;
 
   background: var(--accent-soft);
-  color: var(--accent);
+  border: 1px solid var(--accent-soft);
+  border-radius: 999px;
 
+  color: var(--accent);
   font-size: 10px;
   font-weight: 600;
 }
 
 .project-card h3 {
   margin-bottom: 10px;
+
   color: var(--text);
-  font-size: 19px;
+  font-family: "IBM Plex Serif", serif;
+
+  font-size: 20px;
+  font-weight: 600;
   letter-spacing: -0.3px;
   line-height: 1.45;
 }
 
 .project-card p {
   margin-bottom: 18px;
+
   color: var(--muted);
   font-size: 13.5px;
   line-height: 1.85;
 }
 
-.tag-list {
-  gap: 7px;
-}
-
-.tag-list span {
-  padding: 5px 10px;
-
-  border: 1px solid var(--border);
-  border-radius: 6px;
-
-  background: var(--soft-bg);
-  color: var(--text-soft);
-
-  font-family: "DM Mono", monospace;
-  font-size: 10.5px;
-}
-
 .project-link {
+  display: inline-block;
   align-self: flex-start;
+
   margin-top: auto;
   padding-top: 20px;
 
@@ -973,7 +1094,9 @@ section:not(.hero) {
   font-size: 12px;
   font-weight: 700;
 
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .project-link:hover {
@@ -983,16 +1106,19 @@ section:not(.hero) {
 
 .empty-message {
   margin-top: 24px;
+
   color: var(--muted);
   font-size: 13px;
   text-align: center;
 }
 
-/* ==========================================
-   9. CONTACT SECTION
-========================================== */
 
-/* The first, empty #contact block collapses so it adds no gap */
+/* =====================================================
+   11. CONTACT SECTION
+===================================================== */
+
+/* Handles the empty duplicate contact section in the HTML */
+
 .contact-section:not(:has(*)) {
   padding: 0;
 }
@@ -1010,30 +1136,34 @@ section:not(.hero) {
 
 .contact-kicker {
   display: inline-block;
+
   margin-bottom: 14px;
   padding: 5px 14px;
 
   background: var(--accent-soft);
   border-radius: 999px;
-  color: var(--accent);
 
-  font-family: "DM Mono", monospace;
+  color: var(--accent);
   font-size: 11px;
   letter-spacing: 0.8px;
 }
 
 .contact-heading h2 {
   margin: 0 0 12px;
+
   color: var(--text);
-  font-size: clamp(28px, 4vw, 38px);
-  font-weight: 800;
-  letter-spacing: -1.2px;
+  font-family: "IBM Plex Serif", serif;
+
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  letter-spacing: -1px;
   line-height: 1.25;
 }
 
 .contact-heading p {
   max-width: 420px;
   margin: 0 auto;
+
   color: var(--muted);
   font-size: 15px;
   line-height: 1.8;
@@ -1044,6 +1174,7 @@ section:not(.hero) {
 .contact-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+
   align-items: start;
   gap: 40px;
 
@@ -1051,7 +1182,7 @@ section:not(.hero) {
   margin: 0 auto;
 }
 
-/* Left side */
+/* Contact information */
 
 .contact-info {
   min-width: 0;
@@ -1060,18 +1191,24 @@ section:not(.hero) {
 
 .contact-info h3 {
   margin: 0 0 12px;
+
   color: var(--text);
-  font-size: 22px;
-  font-weight: 750;
+  font-family: "IBM Plex Serif", serif;
+
+  font-size: 23px;
+  font-weight: 600;
   letter-spacing: -0.4px;
 }
 
 .contact-description {
   margin: 0 0 26px;
+
   color: var(--muted);
   font-size: 14px;
   line-height: 1.85;
 }
+
+/* Email and location */
 
 .contact-item {
   display: flex;
@@ -1084,6 +1221,7 @@ section:not(.hero) {
 
   color: var(--text);
   text-decoration: none;
+
   transition: color 0.2s ease;
 }
 
@@ -1102,28 +1240,33 @@ a.contact-item:hover {
 
   background: var(--accent-soft);
   color: var(--accent);
+
   border-radius: 9px;
   font-size: 16px;
 
-  transition: background 0.2s ease, color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 a.contact-item:hover .contact-icon {
   background: var(--accent);
-  color: #fff;
+  color: #ffffff;
 }
 
 .contact-item-content {
   display: flex;
   flex-direction: column;
-  min-width: 0;
   gap: 2px;
+
+  min-width: 0;
 }
 
 .contact-label,
 .social-heading {
   color: var(--muted);
   font-family: "DM Mono", monospace;
+
   font-size: 10px;
   letter-spacing: 0.8px;
 }
@@ -1132,6 +1275,7 @@ a.contact-item:hover .contact-icon {
   color: var(--text);
   font-size: 13px;
   font-weight: 650;
+
   overflow-wrap: anywhere;
 }
 
@@ -1144,6 +1288,7 @@ a.contact-item:hover strong {
 .contact-socials {
   margin-top: 28px;
   padding-top: 20px;
+
   border-top: 1px solid var(--border);
 }
 
@@ -1181,13 +1326,15 @@ a.contact-item:hover strong {
 }
 
 .social-links a:hover {
+  transform: translateY(-3px);
+
   color: var(--accent);
   border-color: var(--accent);
   background: var(--accent-soft);
-  transform: translateY(-3px);
 }
 
-/* Right-side form card */
+
+/* Contact form */
 
 .contact-form-card {
   min-width: 0;
@@ -1215,6 +1362,7 @@ a.contact-item:hover strong {
 
   color: var(--text);
   font-family: "DM Mono", monospace;
+
   font-size: 11px;
   font-weight: 500;
 }
@@ -1222,6 +1370,7 @@ a.contact-item:hover strong {
 .contact-form input,
 .contact-form textarea {
   display: block;
+
   width: 100%;
   min-width: 0;
   padding: 11px 14px;
@@ -1236,6 +1385,7 @@ a.contact-item:hover strong {
   font-size: 13.5px;
 
   outline: none;
+
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease,
@@ -1265,6 +1415,8 @@ a.contact-item:hover strong {
   box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
+/* Submit button */
+
 .contact-submit {
   display: inline-flex;
   justify-self: start;
@@ -1276,16 +1428,19 @@ a.contact-item:hover strong {
   padding: 11px 22px;
 
   background: var(--accent);
-  color: #fff;
+  color: #ffffff;
+
   border: 1px solid var(--accent);
   border-radius: 8px;
 
   font-family: "DM Mono", monospace;
   font-size: 12px;
   font-weight: 500;
+
   cursor: pointer;
 
   box-shadow: 0 6px 16px rgba(57, 86, 200, 0.25);
+
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -1300,58 +1455,23 @@ a.contact-item:hover strong {
 .contact-submit:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
+
   box-shadow: 0 10px 22px rgba(57, 86, 200, 0.32);
 }
 
 .form-note {
   margin: 0;
+
   color: var(--muted);
   font-size: 12px;
+
   overflow-wrap: anywhere;
 }
 
-/* Mobile layout */
 
-@media (max-width: 760px) {
-  .contact-section {
-    padding: 52px 0 60px;
-  }
-
-  .contact-heading {
-    margin-bottom: 32px;
-  }
-
-  .contact-layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
-  }
-
-  .contact-form-card {
-    padding: 24px 18px;
-  }
-}
-
-@media (max-width: 420px) {
-  .contact-section .container {
-    width: calc(100% - 28px);
-  }
-
-  .contact-heading h2 {
-    font-size: 28px;
-  }
-
-  .contact-form-card {
-    padding: 22px 16px;
-  }
-
-  .contact-submit {
-    width: 100%;
-  }
-}
-
-/* ==========================================
-   10. FOOTER (used if you add a footer later)
-========================================== */
+/* =====================================================
+   12. FOOTER
+===================================================== */
 
 .site-footer {
   padding: 30px 0;
@@ -1369,8 +1489,10 @@ a.contact-item:hover strong {
 
 .footer-brand {
   color: var(--text);
-  font-size: 19px;
-  font-weight: 800;
+  font-family: "IBM Plex Serif", serif;
+
+  font-size: 21px;
+  font-weight: 600;
   letter-spacing: -0.7px;
 }
 
@@ -1380,6 +1502,7 @@ a.contact-item:hover strong {
 
 .footer-copy {
   margin: 5px 0 0;
+
   color: var(--muted);
   font-size: 11px;
 }
@@ -1394,36 +1517,29 @@ a.contact-item:hover strong {
   color: var(--accent-hover);
 }
 
-/* ==========================================
-   11. HOVER & FOCUS
-========================================== */
 
-.about-card {
+/* =====================================================
+   13. REVEAL ANIMATIONS
+===================================================== */
+
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+
   transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
-.about-card:hover {
-  box-shadow: var(--shadow-hover);
+.js-reveal .reveal.in-view {
+  opacity: 1;
+  transform: none;
 }
 
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
 
-.contact-form input:focus-visible,
-.contact-form textarea:focus-visible {
-  outline: none;
-}
-
-/* ==========================================
-   12. RESPONSIVE DESIGN
-========================================== */
+/* =====================================================
+   14. RESPONSIVE DESIGN — TABLETS
+===================================================== */
 
 @media (max-width: 900px) {
   .nav {
@@ -1437,9 +1553,19 @@ textarea:focus-visible {
   .hero-grid {
     gap: 36px;
   }
+
+  .contact-layout {
+    gap: 28px;
+  }
 }
 
+
+/* =====================================================
+   15. RESPONSIVE DESIGN — MOBILE
+===================================================== */
+
 @media (max-width: 760px) {
+
   .container {
     width: calc(100% - 36px);
   }
@@ -1447,6 +1573,8 @@ textarea:focus-visible {
   section:not(.hero) {
     padding-block: 65px;
   }
+
+  /* Navigation */
 
   .nav {
     min-height: 65px;
@@ -1491,6 +1619,7 @@ textarea:focus-visible {
 
   .nav-links > a:not(.button) {
     padding: 12px;
+
     font-size: 14px;
     border-radius: 6px;
   }
@@ -1504,6 +1633,8 @@ textarea:focus-visible {
     display: none;
   }
 
+  /* Hero */
+
   .hero {
     padding: 65px 0;
   }
@@ -1515,26 +1646,53 @@ textarea:focus-visible {
 
   .hero h1 {
     font-size: clamp(40px, 11vw, 56px);
-    letter-spacing: -2.2px;
+    letter-spacing: -1.8px;
   }
 
   .terminal-body {
     min-height: 180px;
   }
 
+  /* Section headings */
+
   .section-heading {
     margin-bottom: 32px;
   }
+
+  /* About */
 
   .facts-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
   }
 
+  /* Skills and projects */
+
   .skills-grid,
   .projects-grid {
     grid-template-columns: minmax(0, 1fr);
   }
+
+  /* Contact */
+
+  .contact-section {
+    padding: 52px 0 60px;
+  }
+
+  .contact-heading {
+    margin-bottom: 32px;
+  }
+
+  .contact-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .contact-form-card {
+    padding: 24px 18px;
+  }
+
+  /* Footer */
 
   .footer-inner {
     align-items: flex-start;
@@ -1542,7 +1700,13 @@ textarea:focus-visible {
   }
 }
 
+
+/* =====================================================
+   16. RESPONSIVE DESIGN — SMALL MOBILE
+===================================================== */
+
 @media (max-width: 420px) {
+
   .container {
     width: calc(100% - 28px);
   }
@@ -1557,7 +1721,7 @@ textarea:focus-visible {
 
   .hero h1 {
     font-size: 40px;
-    letter-spacing: -1.8px;
+    letter-spacing: -1.5px;
   }
 
   .hero-actions {
@@ -1569,17 +1733,46 @@ textarea:focus-visible {
   .skill-card {
     padding: 20px;
   }
+
+  .about-buttons {
+    width: 100%;
+  }
+
+  .about-btn {
+    padding-inline: 10px;
+  }
+
+  .contact-section .container {
+    width: calc(100% - 28px);
+  }
+
+  .contact-heading h2 {
+    font-size: 28px;
+  }
+
+  .contact-form-card {
+    padding: 22px 16px;
+  }
+
+  .contact-submit {
+    width: 100%;
+  }
 }
 
-/* ==========================================
-   13. ACCESSIBILITY & REDUCED MOTION
-========================================== */
+
+/* =====================================================
+   17. REDUCED MOTION & ACCESSIBILITY
+===================================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
-    scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
