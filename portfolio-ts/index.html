@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Samia Rahman Mridula — Computer Science student at BRAC University interested in NLP, machine learning, web development, and human-computer interaction.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Samia Rahman Mridula</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    // Apply the saved theme before the page appears, if one exists.
+    try {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light" || savedTheme === "dark") {
+        document.documentElement.dataset.theme = savedTheme;
+      }
+    } catch (error) {
+      // The site still works if browser storage is unavailable.
+    }
+  </script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="#home" aria-label="Samia home">
+        <span class="terminal-bracket">[</span>samia@mridula:~$<span class="terminal-bracket">]</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <!-- <a href="#research">Research</a> -->
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button id="themeToggle" class="theme-toggle icon-button" type="button"
+        aria-label="Switch to dark mode" aria-pressed="false">
+        <span id="themeIcon" aria-hidden="true">☾</span>
+      </button>
+
+      <button class="icon-button menu-toggle" id="menuToggle" type="button"
+        aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span id="menuIcon" aria-hidden="true">☰</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h2>
+            Hi, I am
+          </h2>
+          <h1>
+             Samia
+            <span class="highlight">Computer Science Student</span>
+          </h1>
+          <!-- <p class="hero-description">
+            I study Computer Science and Engineering at BRAC University.
+          </p> -->
+
+          <div class="hero-actions">
+            <!-- Resume dropdown -->
+            <div class="resume-dropdown">
+              <button class="button button-primary" type="button" id="resumeToggle" aria-expanded="false" aria-haspopup="true">
+                Resume <span aria-hidden="true">↓</span>
+              </button>
+              <div class="resume-menu" id="resumeMenu" hidden>
+                <a href="Samia-Rahman-Mridula-CV.pdf" download>Resume</a>
+                <a href="Samia-Rahman-Mridula-Normal-CV.pdf" download>AcademicResume</a>
+              </div>
+            </div>
+
+            <a class="button button-outline" href="https://github.com/samiamridula1"
+              target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+              <i class="fab fa-github" aria-hidden="true"></i>
+            </a>
+            <a class="button button-outline" href="https://linkedin.com/in/samia-rahman-b578ab359"
+              target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+              <i class="fab fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a class="button button-outline" href="mailto:mridulasamia4@gmail.com"
+              aria-label="Send me an email">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="hero-tags" aria-label="Areas of interest">
+            <!-- <span>NLP</span>
+            <span>Machine Learning</span>
+            <span>Web Development</span>
+            <span>HCI</span> -->
+          </div>
+        </div>
+
+        <!-- Terminal card: matches the [samia@mridula:~$] logo -->
+        <div class="terminal" aria-hidden="true">
+          <div class="terminal-bar">
+            <span></span><span></span><span></span>
+            <em>samia@mridula:~</em>
+          </div>
+          <pre class="terminal-body"><span class="t-prompt">$</span> whoami
+Samia Rahman Mridula
+
+<span class="t-prompt">$</span> cat interests.txt
+Computer Science · Web Development
+
+<!-- <span class="t-prompt">$</span> ls projects/
+mass-transit/  obesity-prediction/
+gambling-hci-research/ -->
+
+<span class="t-prompt">$</span> <span class="cursor">▌</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Introduction</span>
+          <h2>About Me</h2>
+          <p>
+            I'm a Computer Science and Engineering graduate from BRAC University with
+            experience in web development, solving programming problems. I'm looking for opportunities to
+            gain practical experience.
+          </p>
+        </div>
+
+        <div class="about-card reveal">
+          <h3>About Me</h3>
+
+          <div class="about-buttons" role="group" aria-label="About me detail level">
+            <button class="about-btn active" type="button" data-target="brief">Brief</button>
+            <button class="about-btn" type="button" data-target="detailed">Detailed Information</button>
+          </div>
+
+          <div id="brief" class="about-content active">
+            <div class="facts-grid">
+              <div class="fact">
+                <span class="fact-label">Education</span>
+                <strong>BSc in Computer Science and Engineering</strong>
+              </div>
+              <div class="fact">
+                <span class="fact-label">University</span>
+                <strong>BRAC University</strong>
+              </div>
+              <div class="fact">
+                <span class="fact-label">Location</span>
+                <strong>Dhaka, Bangladesh</strong>
+              </div>
+              <div class="fact">
+                <!-- <span class="fact-label">Interests</span>
+                <strong>NLP, ML, and HCI</strong> -->
+              </div>
+            </div>
+          </div>
+
+          <div id="detailed" class="about-content">
+            <h4>Detailed Information</h4>
+            <p>
+              I am Samia Rahman Mridula, a Computer Science and Engineering graduate from BRAC University with a strong interest in building user-focused web applications. I work with React, Next.js, Node.js, TypeScript,
+              PostgreSQL, and MongoDB to develop complete frontend and backend.
+              My experience includes personal and academic projects in other computer science areas.
+              I enjoy solving programming problems and turning ideas into functional well-designed projects.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="soft-section" id="skills">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <span class="section-kicker">TOOLBOX</span>
+          <h2>Skills & Technologies</h2>
+          <p>Technologies I've used or am currently learning.</p>
+        </div>
+
+        <div class="skills-grid">
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">&lt;/&gt;</div>
+            <h3>Programming Languages</h3>
+            <div class="tag-list">
+              <span>Python</span>
+              <span>JavaScript</span>
+              <span>TypeScript</span>
+              <span>SQL</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">01</div>
+            <h3>Web Development</h3>
+            <div class="tag-list">
+              <span>React</span>
+              <span>Next.js</span>
+              <span>Node.js</span>
+              <span>Express.js</span>
+              <span>REST APIs</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">DB</div>
+            <h3>Databases</h3>
+            <div class="tag-list">
+              <span>MySQL</span>
+              <span>MongoDB</span>
+              <span>PostgreSQL</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">ML</div>
+            <h3>Machine Learning & Data</h3>
+            <div class="tag-list">
+              <span>Scikit-learn</span>
+              <span>NumPy</span>
+              <span>Pandas</span>
+              <span>Matplotlib</span>
+              <span>Seaborn</span>
+              <span>OpenCV</span>
+              <span>PyTorch</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">⚙</div>
+            <h3>Tools & Development</h3>
+            <div class="tag-list">
+              <span>Git</span>
+              <span>GitHub</span>
+              <span>Postman</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (data-category = web, ml, cv, hci; add "featured" to show in Featured) -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Selected Work</span>
+          <h2>My Projects</h2>
+        </div>
+
+        <div class="project-filters" role="group" aria-label="Filter projects">
+          <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-button" type="button" data-filter="featured" aria-pressed="false">Featured</button>
+          <button class="filter-button" type="button" data-filter="web" aria-pressed="false">Web Development</button>
+          <button class="filter-button" type="button" data-filter="ml" aria-pressed="false">Machine Learning</button>
+          <button class="filter-button" type="button" data-filter="cv" aria-pressed="false">Computer Vision</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+
+          <article class="project-card" data-category="web featured">
+            <div class="project-top">
+              <span class="project-category">Web Development</span>
+              <span class="featured-label">Featured</span>
+            </div>
+
+            <h3>Mass Transit Control System</h3>
+            <p>
+              Add a short description of your contributions and the
+              technologies you used for this project.
+            </p>
+
+            <div class="tag-list">
+              <span>React</span>
+              <span>JavaScript</span>
+              <span>Node.js</span>
+              <span>MongoDB</span>
+            </div>
+
+            <a class="project-link"
+               href="https://github.com/samiamridula1"
+               target="_blank"
+               rel="noopener noreferrer">
+              View Projects on GitHub ↗
+            </a>
+          </article>
+
+          <article class="project-card" data-category="ml featured">
+            <div class="project-top">
+              <span class="project-category">Machine Learning</span>
+              <span class="featured-label">Featured</span>
+            </div>
+
+            <h3>Obesity Level Prediction</h3>
+            <p>
+              Add your project's description, model approach,
+              and evaluation results here.
+            </p>
+
+            <div class="tag-list">
+              <span>Python</span>
+              <span>Scikit-learn</span>
+              <span>Pandas</span>
+              <span>NumPy</span>
+            </div>
+
+            <a class="project-link"
+               href="https://github.com/samiamridula1"
+               target="_blank"
+               rel="noopener noreferrer">
+              View Projects on GitHub ↗
+            </a>
+          </article>
+
+          <article class="project-card" data-category="cv">
+            <div class="project-top"><span class="project-category">Computer Vision</span></div>
+            <h3>Computer Vision Project</h3>
+            <p>
+              Add your project's real problem, approach, and result here before publishing.
+              This card is a placeholder for your own project details.
+            </p>
+            <div class="tag-list"><span>Python</span><span>OpenCV</span><span>Computer Vision</span></div>
+            <a class="project-link" href="#contact">Ask Me About It ↗</a>
+          </article>
+
+        </div>
+        <p class="empty-message" id="emptyMessage" hidden>No projects match this filter yet.</p>
+      </div>
+    </section>
+
+    <!--
+    RESEARCH
+    <section class="soft-section" id="research">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Areas of Exploration</span>
+          <h2>Research Interests</h2>
+          <p>Topics I'm exploring as I continue learning.</p>
+        </div>
+        <div class="interest-grid">
+          <article class="interest-card reveal"><h3>Natural Language Processing</h3><p>Working on detection in low-resource text using transformer models.</p></article>
+          <article class="interest-card reveal"><h3>Machine Learning</h3><p>Learning how data and models can identify patterns and make predictions.</p></article>
+          <article class="interest-card reveal"><h3>Human-Computer Interaction</h3><p>Making digital tools easier, safer, and more transparent for people to use.</p></article>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+
+        <!-- Section Heading -->
+        <div class="contact-heading reveal">
+          <span class="contact-kicker">CONNECT</span>
+          <h2>Let's Work Together</h2>
+          <p>
+            Have a project in mind or want to collaborate?
+            I'm always open to new opportunities.
+          </p>
+        </div>
+
+        <!-- Contact Content -->
+        <div class="contact-layout">
+
+          <!-- LEFT SIDE: Contact Information -->
+          <div class="contact-info">
+
+            <h3>Get In Touch</h3>
+
+            <p class="contact-description">
+              Whether you have a question about my work, need assistance
+              with web development, or want to discuss a project,
+              feel free to reach out!
+            </p>
+
+            <!-- Email -->
+            <a class="contact-item"
+               href="mailto:mridulasamia4@gmail.com">
+
+              <span class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </span>
+
+              <span class="contact-item-content">
+                <span class="contact-label">EMAIL</span>
+                <strong>mridulasamia4@gmail.com</strong>
+              </span>
+
+            </a>
+
+            <!-- Location -->
+            <div class="contact-item">
+
+              <span class="contact-icon">
+                <i class="fas fa-location-dot"></i>
+              </span>
+
+              <span class="contact-item-content">
+                <span class="contact-label">LOCATION</span>
+                <strong>Dhaka, Bangladesh</strong>
+              </span>
+
+            </div>
+
+            <!-- Social Links -->
+            <div class="contact-socials">
+
+              <span class="social-heading">SOCIAL HANDLES</span>
+
+              <div class="social-links">
+
+                <a href="https://github.com/samiamridula1"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+
+                <a href="https://linkedin.com/in/samia-rahman-b578ab359"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="LinkedIn">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+
+                <a href="mailto:mridulasamia4@gmail.com"
+                   aria-label="Email">
+                  <i class="fas fa-envelope"></i>
+                </a>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT SIDE: Contact Form -->
+          <div class="contact-form-card">
+
+            <form class="contact-form" id="contactForm">
+
+              <!-- Name -->
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder=""
+                  autocomplete="name"
+                  maxlength="100"
+                  required
+                >
+              </div>
+
+              <!-- Email -->
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder=""
+                  autocomplete="email"
+                  maxlength=""
+                  required
+                >
+              </div>
+
+              <!-- Subject -->
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="Let's collaborate on..."
+                  maxlength="150"
+                  required
+                >
+              </div>
+
+              <!-- Message -->
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell me about your project..."
+                  maxlength="5000"
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Submit -->
+              <button class="contact-submit" type="submit">
+                Send Message
+                <i class="fas fa-paper-plane"></i>
+              </button>
+
+              <p
+                class="form-note"
+                id="formNote"
+                role="status"
+                aria-live="polite">
+              </p>
+
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
