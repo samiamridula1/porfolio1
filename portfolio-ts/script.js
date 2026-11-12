@@ -1,7 +1,6 @@
 "use strict";
 /* =========================================
-   Portfolio script (TypeScript)
-   Compiled to script.js with `npm run build`.
+   Portfolio script (plain JavaScript)
    ========================================= */
 (function () {
     const CONTACT_EMAIL = "mridulasamia4@gmail.com";
